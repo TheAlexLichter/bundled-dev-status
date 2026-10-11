@@ -20,7 +20,7 @@ The `Vite Tests` workflow (`.github/workflows/vite-tests.yml`) runs every night:
 
 1. Checks out `vitejs/vite` main into `vite/` and builds it.
 2. Runs the playground tests three times: in bundled dev, in plain dev and in build. The bundled-dev skips in Vite's tests stay as they are. `scripts/reporter.mjs` records each test's result and mode, and for a `bundled-dev/*` tag also its `meta.reason` and `meta.issues`.
-3. `scripts/compare.mjs` writes `results/runs/<date>.json` and adds a summary row to `results/history.json`. The trend only needs the summary rows, which are kept forever. Full runs older than 30 days are deleted (`KEEP_RUN_DAYS`).
+3. `scripts/compare.mjs` writes `results/runs/<date>.json` and adds a summary row to `results/history.json`. Both are kept forever.
 4. Commits `results/` and deploys the site to Void.
 
 To run it locally against a Vite checkout:

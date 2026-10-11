@@ -32,11 +32,6 @@ if (!resultsDir) {
 
 const COUNTED = ['pass', 'fail', 'todo', 'not-run', 'triage']
 
-// The trend only needs the summary rows in history.json, which are kept
-// forever. Full runs (every test) are kept this many days, so the repo and the
-// site build do not grow without limit.
-const KEEP_RUN_DAYS = 30
-
 // Tests the three results put in the wrong group. Fix each one in Vite (a tag
 // or a rename), then remove it here.
 const FIXES = [
@@ -181,10 +176,6 @@ const writeJson = (file, data) => fs.writeFileSync(file, JSON.stringify(data, nu
 const runsDir = path.join(resultsDir, 'runs')
 fs.mkdirSync(runsDir, { recursive: true })
 writeJson(path.join(runsDir, `${day}.json`), { ...run, fixes: FIXES, files })
-const keepFrom = new Date(Date.parse(day) - KEEP_RUN_DAYS * 86_400_000).toISOString().slice(0, 10)
-for (const name of fs.readdirSync(runsDir)) {
-  if (name.slice(0, 10) < keepFrom) fs.rmSync(path.join(runsDir, name))
-}
 
 // One entry per day; a second run on the same day replaces the first.
 const historyFile = path.join(resultsDir, 'history.json')

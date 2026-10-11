@@ -77,8 +77,7 @@ export const history: RunInfo[] = (historyJson as RunInfo[]).toSorted((a, b) =>
 // Full runs are large, so each one is its own chunk, loaded when selected.
 const runs = import.meta.glob<Run>('../results/runs/*.json', { import: 'default' })
 
-// Resolves to null for a run older than KEEP_RUN_DAYS in compare.mjs: only its
-// summary row in history.json is kept.
+// Resolves to null when a summary row in history.json has no full run file.
 export function loadRun(date: string): Promise<Run | null> {
   return runs[`../results/runs/${date.slice(0, 10)}.json`]?.() ?? Promise.resolve(null)
 }
