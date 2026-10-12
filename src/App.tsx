@@ -162,11 +162,8 @@ export function App() {
   if (!latest) return <main className="page">No results yet.</main>
 
   const info = run ?? latest
-  const previous = history.at(-2)
   const all = info.summary.all
   const noSsr = info.summary.noSsr
-  const since = (now: number, before?: number) =>
-    before === undefined || now === before ? '' : ` · ${now > before ? '+' : ''}${now - before} since previous run`
 
   function showFile(file: string) {
     if (run?.files.find((f) => f.file === file)?.ssr) setShowSsr(true)
@@ -212,12 +209,12 @@ export function App() {
         <Stat
           value={percent(rate(noSsr))}
           label="Pass rate"
-          note={`${noSsr.passed} of ${noSsr.total} tests${since(noSsr.passed, previous?.summary.noSsr.passed)}`}
+          note={`${noSsr.passed} of ${noSsr.total} tests`}
         />
         <Stat
           value={percent(rate(all))}
           label="Pass rate with SSR"
-          note={`${all.passed} of ${all.total} tests${since(all.passed, previous?.summary.all.passed)}`}
+          note={`${all.passed} of ${all.total} tests`}
         />
         <Stat
           value={
