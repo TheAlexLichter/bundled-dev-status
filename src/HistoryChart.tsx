@@ -51,9 +51,15 @@ export function HistoryChart({
   }, [])
 
   const all = series.flatMap((s) => s.values)
-  // Round the y range out to 10% steps so the lines keep some room.
-  const yMin = Math.max(0, Math.floor((Math.min(...all) - 0.05) * 10) / 10)
-  const yMax = 1
+  // Fit the y range to the data instead of always ending at 100%: the rate
+  // moves by a few tests per run, which is invisible on a 0-100% scale.
+  // Pad by 2% and round out to 5% steps, keeping at least a 10% span.
+  let yMin = Math.max(0, Math.floor((Math.min(...all) - 0.02) * 20) / 20)
+  let yMax = Math.min(1, Math.ceil((Math.max(...all) + 0.02) * 20) / 20)
+  if (yMax - yMin < 0.1) {
+    if (yMax < 1) yMax = Math.min(1, yMin + 0.1)
+    else yMin = Math.max(0, yMax - 0.1)
+  }
   const times = dates.map((d) => Date.parse(d))
   const tMin = Math.min(...times)
   const tMax = Math.max(...times)
@@ -64,7 +70,8 @@ export function HistoryChart({
   const y = (v: number) => PAD.top + (1 - (v - yMin) / (yMax - yMin)) * plotH
 
   const yTicks: number[] = []
-  for (let v = yMin; v <= yMax + 1e-9; v += yMax - yMin > 0.5 ? 0.2 : 0.1) yTicks.push(v)
+  const yStep = yMax - yMin > 0.5 ? 0.2 : yMax - yMin > 0.2 ? 0.1 : 0.05
+  for (let v = yMin; v <= yMax + 1e-9; v += yStep) yTicks.push(v)
 
   const xTickCount = Math.min(dates.length, Math.max(2, Math.floor(plotW / 90)))
   const xTicks =
