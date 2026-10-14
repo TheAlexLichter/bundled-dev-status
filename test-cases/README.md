@@ -75,7 +75,11 @@ Only PRs opened as part of this work, starting with #23680. All PRs are in vitej
 | `csp` | #23705 | tags | `test/bundled-dev-skip-tags-csp` | tags the 5 skips with one shared `todo` (`transformIndexHtmlTodo`) | merged 2026-10-09 |
 | `css` | #23707 | tags | `test/bundled-dev-skip-tags-css` | tags `?url` as `todo`; splits 4 HMR edits into their own tests, tagged `todo` (rolldown/rolldown#10039) | merged 2026-10-09 |
 | `dynamic-import` | #23712 | tags | `test/bundled-dev-skip-tags-dynamic-import` | un-skips the `vars worker` case (it passes; no tag needed) | merged 2026-10-12 |
-| `env` | #23713 | fix | `fix/bundled-dev-env-object-define` | merges user `import.meta.env.*` defines into the `import.meta.env` object (`isBuild` → `isBundled`); removes the skip | open |
+| `env` | #23713 | fix | `fix/bundled-dev-env-object-define` | merges user `import.meta.env.*` defines into the `import.meta.env` object (`isBuild` → `isBundled`); removes the skip | merged 2026-10-13 |
+| `environment-react-ssr` | #23740 | tags | `test/bundled-dev-skip-tags-environment-react-ssr` | tags the 2 skips; splits `deps reload` into client (`unsupported`) and ssr (`todo`); makes `basic` assert hydration, tagged `todo` | merged 2026-10-13 |
+| `forward-console` | #23741 | fix | `fix/bundled-dev-forward-console-sourcemap` | maps forwarded error stacks through the chunk source maps in `memoryFiles`; removes the 3 skips | open |
+| `fs-serve` | #23742 | tags | `test/bundled-dev-skip-tags-fs-serve` | tags the `matrix` describe as `unsupported` (sapphi-red in #23246: bundled dev does not serve single files); passes the 8.3 skip with `skipIf`, because a `{ skip }` option overrides the tag | open |
+| `glob-import` | #23743 | tags | `test/bundled-dev-skip-tags-glob-import` | tags the 3 add/remove-file HMR tests with one shared `todo` (`globFileAddRemoveTodo`: the `hotUpdate` hook works only for Rolldown's Rust plugins and stays off behind `experimental.devMode.hotUpdate` until the JS-side adapter lands; vitejs/vite#22956, rolldown/rolldown#10065) | open |
 
 ## When I ask you to check the PRs
 
@@ -101,11 +105,11 @@ Counts are from `main` @ `8a4c19cfc`: 141 skip sites and 5 excluded spec files.
 - [x] `csp` — 1 spec · 5 skips · vitejs/vite#23705 · issue comments: 4/9 (plain dev 9/9)
 - [x] `css` — 6 specs · 1 skip + 4 guards · vitejs/vite#23707 · `tests.ts` is shared by `css.spec.ts` and `lightningcss.spec.ts`, so each tag counts twice · `postcss-plugins-different-dir` starts its own plain dev server (not covered, left as is) · issue comments: 97/107 (10 todo)
 - [x] `dynamic-import` — 1 spec · done
-- [x] `env` — 1 spec · 1 skip · no tags · `isBundledDev ? '/env/assets/index.js' : …` in the `import.meta.url` test is a bundled-dev branch in the expected value, kept · 17/17 under bundled dev with the fix (plain dev 17/17, build 16/16) · issue comments: 16/17, 17/17 with #23713
-- [ ] `environment-react-ssr` — 1 spec · 2 skips
-- [ ] `forward-console` — 1 spec · 3 skips
-- [ ] `fs-serve` — 3 specs · 1 skip
-- [ ] `glob-import` — 1 spec · 3 skips
+- [x] `env` — 1 spec · done
+- [x] `environment-react-ssr` — 1 spec · 2 skips + `basic` (never asserted, so it passed without hydration) · vitejs/vite#23740 · `deps reload` split into client and ssr tests · issue comments: 1/5 (plain dev 5/5)
+- [x] `forward-console` — 1 spec · 3 skips · no tags · 4/4 under bundled dev with the fix (plain dev 4/4) · issue comments: 1/4, 4/4 with #23741
+- [x] `fs-serve` — 3 specs · 1 skip (the `matrix` describe in the shared `commonTests.ts`, about 60 tests per spec) · vitejs/vite#23742 · issue comments: 56/172
+- [x] `glob-import` — 1 spec · 3 skips · vitejs/vite#23743 · `no hmr for adding/removing files` passes under bundled dev without checking anything (bundled dev never requests `dir/index.js`), left as is · `follow symlinks same reference` failed locally in every mode on 2026-10-13, also without the change · issue comments: 22/25 (unchanged)
 - [ ] `hmr` — 1 spec · 26 skips
 - [ ] `hmr-ssr` — 1 spec · excluded: `hmr-ssr.spec.ts`
 - [ ] `js-sourcemap` — 1 spec · 5 skips
