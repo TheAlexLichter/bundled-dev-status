@@ -208,5 +208,47 @@
         "ownServer": 14
       }
     }
+  },
+  {
+    "date": "2026-10-14T07:30:42.307Z",
+    "viteCommit": "38f3cb45b1490ed24775547ceafa677b91a57714",
+    "rolldownVersion": "1.2.13",
+    "runUrl": "https://github.com/h-a-n-a/bundled-dev/actions/runs/38528307009",
+    "summary": {
+      "all": {
+        "total": 1155,
+        "passed": 748,
+        "files": 84,
+        "filesPassing": 38,
+        "statuses": {
+          "pass": 748,
+          "fail": 0,
+          "todo": 36,
+          "not-run": 0,
+          "triage": 371,
+          "unsupported": 2
+        },
+        "buildOnly": 167,
+        "everyMode": 14,
+        "ownServer": 14
+      },
+      "noSsr": {
+        "total": 1057,
+        "passed": 746,
+        "files": 73,
+        "filesPassing": 37,
+        "statuses": {
+          "pass": 746,
+          "fail": 0,
+          "todo": 34,
+          "not-run": 0,
+          "triage": 277,
+          "unsupported": 0
+        },
+        "buildOnly": 155,
+        "everyMode": 11,
+        "ownServer": 14
+      }
+    }
   }
 ]
