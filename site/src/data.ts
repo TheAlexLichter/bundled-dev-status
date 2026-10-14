@@ -1,5 +1,5 @@
 // Shapes written by scripts/compare.mjs.
-import historyJson from '../results/history.json'
+import historyJson from '../../results/history.json'
 
 export type TestStatus =
   | 'pass'
@@ -75,11 +75,11 @@ export const history: RunInfo[] = (historyJson as RunInfo[]).toSorted((a, b) =>
 )
 
 // Full runs are large, so each one is its own chunk, loaded when selected.
-const runs = import.meta.glob<Run>('../results/runs/*.json', { import: 'default' })
+const runs = import.meta.glob<Run>('../../results/runs/*.json', { import: 'default' })
 
 // Resolves to null when a summary row in history.json has no full run file.
 export function loadRun(date: string): Promise<Run | null> {
-  return runs[`../results/runs/${date.slice(0, 10)}.json`]?.() ?? Promise.resolve(null)
+  return runs[`../../results/runs/${date.slice(0, 10)}.json`]?.() ?? Promise.resolve(null)
 }
 
 export const rate = (s: { passed: number; total: number }) => (s.total ? s.passed / s.total : 0)
