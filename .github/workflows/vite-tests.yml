@@ -43,6 +43,10 @@ jobs:
       - uses: pnpm/setup@v3
         with:
           runtime: node@24
+          # The pnpm version comes from site/package.json. This job only needs
+          # pnpm itself: Vite installs its own deps, and compare.mjs needs none.
+          working-directory: site
+          install: false
 
       - name: Install and build Vite
         working-directory: vite
