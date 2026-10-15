@@ -1,8 +1,8 @@
 {
-  "date": "2026-10-15T07:21:30.261Z",
-  "viteCommit": "bd3253387fe1dc96831950f9894a456e9cbfe2f8",
+  "date": "2026-10-15T11:32:41.554Z",
+  "viteCommit": "8d7623d9b5647714a5b20cbd787a5401ca846229",
   "rolldownVersion": "1.2.13",
-  "runUrl": "https://github.com/h-a-n-a/bundled-dev/actions/runs/38697700432",
+  "runUrl": "https://github.com/h-a-n-a/bundled-dev/actions/runs/38727724589",
   "summary": {
     "all": {
       "total": 1041,
@@ -12,9 +12,9 @@
       "statuses": {
         "pass": 753,
         "fail": 0,
-        "todo": 36,
+        "todo": 39,
         "not-run": 0,
-        "triage": 252,
+        "triage": 249,
         "unsupported": 122
       },
       "buildOnly": 167,
@@ -29,9 +29,9 @@
       "statuses": {
         "pass": 751,
         "fail": 0,
-        "todo": 34,
+        "todo": 37,
         "not-run": 0,
-        "triage": 158,
+        "triage": 155,
         "unsupported": 120
       },
       "buildOnly": 155,
@@ -3407,7 +3407,17 @@
         },
         {
           "name": "hmr for adding/removing files",
-          "status": "triage"
+          "status": "todo",
+          "tag": "todo",
+          "reason": "`import.meta.glob` does not see a file that is created or deleted after the server starts: Rolldown supports the `hotUpdate` hook only for Rust plugins, and the hook stays off (`experimental.devMode.hotUpdate`) until its JS-side adapter lands",
+          "issues": {
+            "vite": [
+              22956
+            ],
+            "rolldown": [
+              10065
+            ]
+          }
         },
         {
           "name": "no hmr for adding/removing files",
@@ -3415,11 +3425,31 @@
         },
         {
           "name": "hmr for adding/removing files in package",
-          "status": "triage"
+          "status": "todo",
+          "tag": "todo",
+          "reason": "`import.meta.glob` does not see a file that is created or deleted after the server starts: Rolldown supports the `hotUpdate` hook only for Rust plugins, and the hook stays off (`experimental.devMode.hotUpdate`) until its JS-side adapter lands",
+          "issues": {
+            "vite": [
+              22956
+            ],
+            "rolldown": [
+              10065
+            ]
+          }
         },
         {
           "name": "hmr for adding/removing files with array patterns and exclusions",
-          "status": "triage"
+          "status": "todo",
+          "tag": "todo",
+          "reason": "`import.meta.glob` does not see a file that is created or deleted after the server starts: Rolldown supports the `hotUpdate` hook only for Rust plugins, and the hook stays off (`experimental.devMode.hotUpdate`) until its JS-side adapter lands",
+          "issues": {
+            "vite": [
+              22956
+            ],
+            "rolldown": [
+              10065
+            ]
+          }
         },
         {
           "name": "follow symlinks",
