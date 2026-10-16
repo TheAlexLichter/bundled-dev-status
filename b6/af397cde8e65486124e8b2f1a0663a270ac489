@@ -1,0 +1,67 @@
+.github/workflows/deploy.yml
+  s_0fb015f19ac243::t_a1df41ebcd72c5 27,29-33,38,40-41
+.github/workflows/vite-tests.yml
+  s_0fb015f19ac243::t_c96491a43881be 43,45-48,50-51
+.node-version
+  s_0fb015f19ac243::t_4b2a751818cf1a 1
+README.md
+  s_0fb015f19ac243::t_64109a3f9f96bf 5-27
+package.json
+  s_0fb015f19ac243::t_b81d25384f3256 1-18
+pnpm-workspace.yaml
+  s_0fb015f19ac243::t_f902cfd3da8cbc 1-4,18-48
+scripts/compare.mjs
+  s_0fb015f19ac243::t_0b3e4a619e3f07 82-84,155
+site/README.md
+  s_0fb015f19ac243::t_cbebe8ff17a7f2 3,7-11,14-19,42-54
+site/index.html
+  s_0fb015f19ac243::t_7ad8b17c3c651b 7-10
+site/package.json
+  s_0fb015f19ac243::t_ac92edf5b8e8ac 2,6-10,21
+site/src/App.tsx
+  s_0fb015f19ac243::t_15a5226ee92ef1 105,134-138,140,144-146,154,179-180,184-189,213-214,229-230,285-291,385-386,393-394,400-403,411-415,434-435,538-540
+site/src/HistoryChart.tsx
+  s_0fb015f19ac243::t_e2162888bd7fe0 35,118-124
+site/src/data.ts
+  s_0fb015f19ac243::t_3e4fd911a9c9eb 4,67
+site/src/styles.css
+  s_0fb015f19ac243::t_87540f9aa23938 101-105,537-541
+site/tsconfig.json
+  s_0fb015f19ac243::t_2533237595b7f9 10
+site/vite.config.ts
+  s_0fb015f19ac243::t_fb62984c637084 2,6,14
+site/void.config.ts
+  s_0fb015f19ac243::t_b05a2e8de04582 1,9,12
+test-cases/README.md
+  s_0fb015f19ac243::t_7511390c811678 7-10,68-83
+tldraw/README.md
+  s_0fb015f19ac243::t_08da49384dfa73 7-15,45-60,68-69
+tldraw/package.json
+  s_0fb015f19ac243::t_ef06e3b7c9d363 1-11
+tldraw/scripts/bench.mjs
+  s_0fb015f19ac243::t_678012e48cb72b 32-33,73-77,86-89,170-171,187,216,226-231,250-253
+tldraw/scripts/chart.html
+  s_0fb015f19ac243::t_40f202f40b1c16 3-214,221-226
+tldraw/scripts/summarize.cjs
+  s_0fb015f19ac243::t_e474bea3c4fccd 4,44-45,50-53,74-84
+tsconfig.json
+  s_0fb015f19ac243::t_cb81d623ca29d7 1-12
+vite.config.ts
+  s_0fb015f19ac243::t_98fa761cbc2449 1-18
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "b6af397cde8e65486124e8b2f1a0663a270ac489",
+  "prompts": {},
+  "sessions": {
+    "s_0fb015f19ac243": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a144de-eb25-7a53-9b2c-184baac30d9a",
+        "model": "unknown"
+      },
+      "human_author": "Alexander Lichter <alichter@cloudflare.com>"
+    }
+  }
+}
