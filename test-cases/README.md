@@ -77,9 +77,10 @@ Only PRs opened as part of this work, starting with #23680. All PRs are in vitej
 | `dynamic-import` | #23712 | tags | `test/bundled-dev-skip-tags-dynamic-import` | un-skips the `vars worker` case (it passes; no tag needed) | merged 2026-10-12 |
 | `env` | #23713 | fix | `fix/bundled-dev-env-object-define` | merges user `import.meta.env.*` defines into the `import.meta.env` object (`isBuild` → `isBundled`); removes the skip | merged 2026-10-13 |
 | `environment-react-ssr` | #23740 | tags | `test/bundled-dev-skip-tags-environment-react-ssr` | tags the 2 skips; splits `deps reload` into client (`unsupported`) and ssr (`todo`); makes `basic` assert hydration, tagged `todo` | merged 2026-10-13 |
-| `forward-console` | #23741 | fix | `fix/bundled-dev-forward-console-sourcemap` | maps forwarded error stacks through the chunk source maps in `memoryFiles`; removes the 3 skips | open |
-| `fs-serve` | #23742 | tags | `test/bundled-dev-skip-tags-fs-serve` | tags the `matrix` describe as `unsupported` (sapphi-red in #23246: bundled dev does not serve single files); passes the 8.3 skip with `skipIf`, because a `{ skip }` option overrides the tag | open |
-| `glob-import` | #23743 | tags | `test/bundled-dev-skip-tags-glob-import` | tags the 3 add/remove-file HMR tests with one shared `todo` (`globFileAddRemoveTodo`: the `hotUpdate` hook works only for Rolldown's Rust plugins and stays off behind `experimental.devMode.hotUpdate` until the JS-side adapter lands; vitejs/vite#22956, rolldown/rolldown#10065) | open |
+| `forward-console` | #23741 | fix | `fix/bundled-dev-forward-console-sourcemap` | maps forwarded error stacks through the chunk source maps in `memoryFiles`; removes the 3 skips | merged 2026-10-15 |
+| `fs-serve` | #23742 | tags | `test/bundled-dev-skip-tags-fs-serve` | tags the `matrix` describe as `unsupported` (sapphi-red in #23246: bundled dev does not serve single files); passes the 8.3 skip with `skipIf`, because a `{ skip }` option overrides the tag | merged 2026-10-15 |
+| `glob-import` | #23743 | tags | `test/bundled-dev-skip-tags-glob-import` | tags the 3 add/remove-file HMR tests with one shared `todo` (`globFileAddRemoveTodo`: the `hotUpdate` hook works only for Rolldown's Rust plugins and stays off behind `experimental.devMode.hotUpdate` until the JS-side adapter lands; vitejs/vite#22956, rolldown/rolldown#10065) | merged 2026-10-15 |
+| `hmr` | #23788 | tags | `test/bundled-dev-skip-tags-hmr` | tags 21 of the 26 skips (17 `todo`, 4 `unsupported`); un-skips 5 with no tag; adds a build-error recovery test (`todo`); `css-style/index.html` becomes a build input; `import.meta.hot?.accept` uses `gotoLatestBuild`; splits the link check out of `backend-integration`'s `preserve the base in CSS HMR` (`unsupported`) | open |
 
 ## When I ask you to check the PRs
 
@@ -107,10 +108,10 @@ Counts are from `main` @ `8a4c19cfc`: 141 skip sites and 5 excluded spec files.
 - [x] `dynamic-import` — 1 spec · done
 - [x] `env` — 1 spec · done
 - [x] `environment-react-ssr` — 1 spec · 2 skips + `basic` (never asserted, so it passed without hydration) · vitejs/vite#23740 · `deps reload` split into client and ssr tests · issue comments: 1/5 (plain dev 5/5)
-- [x] `forward-console` — 1 spec · 3 skips · no tags · 4/4 under bundled dev with the fix (plain dev 4/4) · issue comments: 1/4, 4/4 with #23741
+- [x] `forward-console` — 1 spec · done
 - [x] `fs-serve` — 3 specs · 1 skip (the `matrix` describe in the shared `commonTests.ts`, about 60 tests per spec) · vitejs/vite#23742 · issue comments: 56/172
 - [x] `glob-import` — 1 spec · 3 skips · vitejs/vite#23743 · `no hmr for adding/removing files` passes under bundled dev without checking anything (bundled dev never requests `dir/index.js`), left as is · `follow symlinks same reference` failed locally in every mode on 2026-10-13, also without the change · issue comments: 22/25 (unchanged)
-- [ ] `hmr` — 1 spec · 26 skips
+- [x] `hmr` — 1 spec · 26 skips · vitejs/vite#23788 · 21 tagged (17 `todo`, 4 `unsupported`), 5 un-skipped with no tag (`not loaded dynamic import` now edits real code; `css-style/index.html` became a build input; 3 "stray reload" claims did not reproduce) · 1 new test (`restoring a deleted file that is still imported hot updates`, `todo`) · `backend-integration`: the link check of `preserve the base in CSS HMR` split out, `unsupported` with the same reason as the 2 link-swap tests · `import.meta.hot?.accept` now opens its page with `gotoLatestBuild`: after case 15's edit the output is stale, so plain `page.goto` landed on the fallback page and the edit right after it could be dropped (3 failures in 26 runs; 0 in 60 runs with `gotoLatestBuild`) · issue comments: 39/61 (plain dev 61/61)
 - [ ] `hmr-ssr` — 1 spec · excluded: `hmr-ssr.spec.ts`
 - [ ] `js-sourcemap` — 1 spec · 5 skips
 - [ ] `json` — 1 spec · 1 skip
