@@ -1,0 +1,23 @@
+.github/workflows/deploy.yml
+  s_0fb015f19ac243::t_8b35689344ff1e 29
+.github/workflows/vite-tests.yml
+  s_0fb015f19ac243::t_2bb2b146ecf977 45
+package.json
+  s_0fb015f19ac243::t_17d7702966a5f6 17-19
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "8548fd30da2f80994e99b1fd4625b1bfa7cabb86",
+  "prompts": {},
+  "sessions": {
+    "s_0fb015f19ac243": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a144de-eb25-7a53-9b2c-184baac30d9a",
+        "model": "unknown"
+      },
+      "human_author": "Alexander Lichter <alichter@cloudflare.com>"
+    }
+  }
+}
