@@ -1,0 +1,21 @@
+README.md
+  s_e21ea58218f61f::t_12444ba9c7b516 5-15
+site/src/App.tsx
+  s_e21ea58218f61f::t_cafba9db183cb1 180-181
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "2bf978bbbc12f2139e587986f804e4ae635f9f32",
+  "prompts": {},
+  "sessions": {
+    "s_e21ea58218f61f": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a1457c-39ba-78f3-91cd-c7fde0f971ec",
+        "model": "unknown"
+      },
+      "human_author": "Alexander Lichter <alichter@cloudflare.com>"
+    }
+  }
+}
