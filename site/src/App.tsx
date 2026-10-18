@@ -177,7 +177,8 @@ export function App() {
         <h1>Vite bundled dev compatibility</h1>
         <p className="lede">
           Results from Vite's playground tests, run with <code>vite --experimentalBundle</code>. Only tests that apply
-          to bundled dev count. Each square below is one test case; the line chart tracks the pass rate across runs.
+          to bundled dev count. Each square below is one test case; the line chart tracks the pass rate across runs. New
+          to bundled dev? <a href="https://github.com/h-a-n-a/bundled-dev#what-is-bundled-dev">Read a short intro</a>.
         </p>
         <p className="meta">
           Latest run:{' '}

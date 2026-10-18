@@ -2,6 +2,17 @@
 
 Performance of Vite bundled dev (`vite --experimentalBundle`) compared with Vite dev (`vite`) on real open-source apps.
 
+## What is bundled dev?
+
+Vite's dev server normally doesn't bundle your app. The browser loads each source file as a native ES module, and Vite transforms each file when it's requested. That makes startup fast, but in very large apps the number of requests can slow down page loads.
+
+Bundled dev (Vite calls it _full bundle mode_) uses Rolldown, the bundler behind Vite 8, to bundle the app during development, much like a production build. Vite's early results show 3× faster dev server startup, 40% faster full reloads and 10× fewer network requests. It is still experimental. To turn it on, run `vite --experimentalBundle` or set `experimental.bundledDev: true` in your Vite config.
+
+Further reading:
+
+- [Why Vite: Where Vite is heading](https://vite.dev/guide/why#where-vite-is-heading)
+- [Vite 8 announcement: Looking ahead](https://vite.dev/blog/announcing-vite8#looking-ahead)
+
 ## Development
 
 This repository is a pnpm workspace managed with [Vite+](https://viteplus.dev/). Use Node.js 24 and run these commands from the repository root:
