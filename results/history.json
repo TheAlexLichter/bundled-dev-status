@@ -1090,5 +1090,47 @@
         "ownServer": 14
       }
     }
+  },
+  {
+    "date": "2026-11-04T08:56:28.254Z",
+    "viteCommit": "0fdd81e9460dd44806b2b6290603ee2c8366a54e",
+    "rolldownVersion": "1.2.16",
+    "runUrl": "https://github.com/TheAlexLichter/bundled-dev-status/actions/runs/41803052064",
+    "summary": {
+      "all": {
+        "total": 1001,
+        "passed": 777,
+        "files": 84,
+        "filesPassing": 45,
+        "statuses": {
+          "pass": 777,
+          "fail": 0,
+          "todo": 63,
+          "not-run": 0,
+          "triage": 161,
+          "unsupported": 186
+        },
+        "buildOnly": 168,
+        "everyMode": 10,
+        "ownServer": 14
+      },
+      "noSsr": {
+        "total": 901,
+        "passed": 775,
+        "files": 73,
+        "filesPassing": 44,
+        "statuses": {
+          "pass": 775,
+          "fail": 0,
+          "todo": 61,
+          "not-run": 0,
+          "triage": 65,
+          "unsupported": 184
+        },
+        "buildOnly": 155,
+        "everyMode": 7,
+        "ownServer": 14
+      }
+    }
   }
 ]
